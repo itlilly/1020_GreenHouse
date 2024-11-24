@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environmental Control</title>
+</head>
+<body>
+    <h1>Current Environmental Values</h1>
+    <p>Temperature: {{ current_temp }} °C</p>
+    <p>Humidity: {{ current_humid }} %</p>
+    <p>Moisture: {{ current_moist }} %</p>
+
+    <h2>Set Desired Values</h2>
+    <form action="/set_values" method="POST">
+        <label for="temp">Desired Temperature (°C): </label>
+        <input type="number" id="temp" name="temp" value="{{ d_temp }}"><br><br>
+
+        <label for="moisture">Desired Moisture (%): </label>
+        <input type="number" id="moisture" name="moisture" value="{{ d_moist }}"><br><br>
+
+        <label for="humidity">Desired Humidity (%): </label>
+        <input type="number" id="humidity" name="humidity" value="{{ d_humid }}"><br><br>
+
+        <button type="submit">Update Data</button>
+    </form>
+
+    <h2>Sensor Data Over Time</h2>
+    <img src="{{ graph_url }}" alt="Sensor Data Plot" width="800" height="600">
+</body>
+</html>
